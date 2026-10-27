@@ -14,6 +14,12 @@ public class PhysicalProduct extends Product{
         this.dimensions = dimensions;
     }
 
+    public double getWeightKg() {
+        return weightKg;
     }
+    public String getDimensions(){
+        return dimensions;
+    }
+}
 
 
