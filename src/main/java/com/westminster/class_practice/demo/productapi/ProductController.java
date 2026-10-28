@@ -57,6 +57,10 @@ public class ProductController{
                 "Total Products", productList
         );
     }
+    @GetMapping("/inherited")
+    public List<Product> inherited() {
+        return productService.addGetInheritedProduct();
+    }
     }
 
 
