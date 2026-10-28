@@ -31,6 +31,7 @@ public class Product {
     }
 
     public int getId() {
+
         return this.id;
     }
 
