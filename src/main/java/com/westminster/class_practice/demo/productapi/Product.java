@@ -77,5 +77,8 @@ public class Product {
     public String onFulfillOrder() {
         return "order fulfilled";
     }
+    public String getSummary() {
+        return name + " — £" + unitPrice;
+    }
 
 }
