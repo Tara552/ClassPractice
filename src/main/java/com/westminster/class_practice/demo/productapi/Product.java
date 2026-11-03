@@ -1,7 +1,7 @@
 package com.westminster.class_practice.demo.productapi;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-public class Product {
+public abstract class Product {
     private int id;
     private String name;
     private int qty;
@@ -12,7 +12,6 @@ public class Product {
 
     @JsonCreator
     public Product() {
-
         this(0, null, 0, false, 0.0);
     }
 
@@ -26,12 +25,10 @@ public class Product {
     }
 
     public double calculateTotal() {
-
         return this.qty * this.unitPrice;
     }
 
     public int getId() {
-
         return this.id;
     }
 
@@ -74,11 +71,10 @@ public class Product {
     public static int getInstanceCount() {
         return instanceCount;
     }
+
     public String onFulfillOrder() {
         return "order fulfilled";
     }
-    public String getSummary() {
-        return name + " — £" + unitPrice;
-    }
 
+    public abstract String getSummary();
 }

@@ -1,8 +1,11 @@
 package com.westminster.class_practice.demo.productapi;
 
-public class PhysicalProduct extends Product{
+import static org.apache.tomcat.util.net.openssl.OpenSSLStatus.getName;
+
+public class PhysicalProduct extends Product implements Discountable{
     private double weightKg;
     private  String dimensions;
+    double discountedPrice;
 
     public PhysicalProduct() {
 
@@ -26,6 +29,17 @@ public class PhysicalProduct extends Product{
         
     }
 
+    @Override
+    public void applyDiscountable(double rate) {
+        double capped = Math.min(rate, 0.20);
+        discountedPrice = getUnitPrice() * (1 - capped);
+
+    }
+
+    @Override
+    public double getDiscountedPrice() {
+        return discountedPrice;
+    }
 }
 
 
